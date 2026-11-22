@@ -1,0 +1,38 @@
+:root {
+  /* Cast-Iron & Asphalt Surfaces (Dark Storefront Base) */
+  --bg-iron: #0b0b0a;
+  --bg-rack: #141311;
+  --bg-card: #090908;
+  --bg-panel: #181714;
+
+  /* Dark-Mode Typography & Brand Taupe */
+  --ink-bone: #f2efe9;
+  --ink-muted: #b0a99e;
+  --ink-dim: #8b8479;
+  --taupe: #b8a995;
+  --taupe-bright: #cfc1ae;
+  --rust: #c84b31;
+
+  /* Borders & Hairlines (Dark) */
+  --line-dark: rgba(184, 169, 149, 0.16);
+  --line-strong: rgba(184, 169, 149, 0.36);
+
+  /* Woven Hang-Tag Chalk Surfaces (Tactile Editorial Break) */
+  --bg-chalk: #ece8df;
+  --bg-chalk-alt: #e3ded3;
+  --ink-carbon: #141311;
+  --ink-slate: #4c4841;
+  --line-chalk: rgba(20, 19, 17, 0.16);
+
+  /* Type Scale */
+  --font-display: 'Barlow Condensed', Impact, 'Arial Narrow', sans-serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* Spacing & Container */
+  --container-max: 1260px;
+  --gutter: clamp(18px, 4vw, 48px);
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
