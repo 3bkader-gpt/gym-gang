@@ -2,6 +2,8 @@
 Thumbs.db
 *.log
 .wrangler/
+.dev.vars
+.env
 
 # Reference exports (not part of the deployed site)
 Gym_Gang*.html

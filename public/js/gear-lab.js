@@ -1,5 +1,5 @@
 (function () {
-  const { BRAND_CONFIG, applyRecommendedSizes } = window.GG;
+  const { BRAND_CONFIG } = window.GG;
 
   const PLATES = [25, 20, 15, 10, 5, 2.5, 1.25];
   const PLATE_COLORS = {
@@ -35,17 +35,26 @@
       return;
     }
 
-    const sizes = ['S', 'M', 'L', 'XL'];
-    let idx = weight < 65 ? 0 : weight < 78 ? 1 : weight < 92 ? 2 : 3;
-    if (height >= 186 && idx < 3) idx += 1;
-    if (height <= 165 && idx > 0) idx -= 1;
+    const guide = BRAND_CONFIG.sizeGuide && BRAND_CONFIG.sizeGuide.length
+      ? BRAND_CONFIG.sizeGuide
+      : [
+          { size: 'S', below: 65 },
+          { size: 'M', below: 78 },
+          { size: 'L', below: 92 },
+          { size: 'XL', below: null }
+        ];
+    const sizes = guide.map((g) => g.size);
+    let idx = guide.findIndex((g) => g.below === null || weight < g.below);
+    if (idx < 0) idx = sizes.length - 1;
+
+    const tallCm = BRAND_CONFIG.tallCm || 186;
+    const shortCm = BRAND_CONFIG.shortCm || 165;
+    if (height >= tallCm && idx < sizes.length - 1) idx += 1;
+    if (height <= shortCm && idx > 0) idx -= 1;
 
     const teeSize = sizes[idx];
     const hoodieSize = hoodieFit === 'oversized' ? sizes[Math.max(idx - 1, 0)] : teeSize;
-    const note =
-      weight >= 115
-        ? `Estimate for ${height} cm / ${weight} kg (XL is our largest Drop 01 cut — message us on WhatsApp to confirm measurements).`
-        : `Estimate for ${height} cm / ${weight} kg. Between sizes? Size up for comfort.`;
+    const note = `Estimate for ${height} cm / ${weight} kg. Between sizes? Size up for comfort.`;
 
     sizeResult.innerHTML = `
       <div>Compression Tee <strong>${teeSize}</strong> Hoodie <strong>${hoodieSize}</strong></div>
@@ -54,7 +63,7 @@
     `;
 
     document.getElementById('apply-fit-btn').addEventListener('click', () => {
-      applyRecommendedSizes(teeSize, hoodieSize);
+      window.GG.applyRecommendedSizes(teeSize, hoodieSize);
       document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
     });
   });
@@ -112,18 +121,37 @@
 
   const joinForm = document.getElementById('join-form');
   const joinMsg = document.getElementById('join-msg');
-  joinForm.addEventListener('submit', (e) => {
+  joinForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById('join-email').value.trim();
-    const msg = `Hi Gym Gang, please add me to Drop 02 early access.\nEmail: ${email}`;
-    window.open(
-      `https://wa.me/${BRAND_CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`,
-      '_blank',
-      'noopener,noreferrer'
-    );
+    if (!email) return;
+
+    if (location.protocol !== 'file:') {
+      try {
+        const res = await fetch('/api/newsletter', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          joinMsg.textContent = data.error || 'Could not subscribe right now.';
+          return;
+        }
+        const code = data.promoCode || 'GANG10';
+        window.GG.applyPromo(code);
+        joinMsg.textContent = data.alreadySubscribed
+          ? `You’re already on the Drop 02 list. Code ${code} is active in your bag.`
+          : `You’re in the gang! Your email is saved and code ${code} (10% off) is applied to your bag.`;
+        joinForm.reset();
+        return;
+      } catch {
+        // Fallback below
+      }
+    }
+
     window.GG.applyPromo('GANG10');
-    joinMsg.textContent =
-      'You’re in the gang. Code GANG10 is applied to your bag: 10% off your first order. Send the WhatsApp message that just opened to join the Drop 02 list.';
+    joinMsg.textContent = 'You’re in the gang. Code GANG10 is applied to your bag: 10% off your first order.';
     joinForm.reset();
   });
 

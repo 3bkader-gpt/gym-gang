@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="dark">
   <title>Gym Gang | Gym Wear Built Together</title>
-  <meta name="description" content="Gym Gang makes gym wear for people who train with discipline, consistency and community. Shop Drop 01 across Egypt and order directly via WhatsApp.">
+  <meta name="description" content="Gym Gang makes gym wear for people who train with discipline, consistency and community. Shop Drop 01 across Egypt and order directly online or via WhatsApp.">
   <meta name="theme-color" content="#0B0B0A">
+  <link rel="canonical" href="https://gym-gang.pages.dev/">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gym-gang.pages.dev/">
   <meta property="og:title" content="Gym Gang | Built Together">
-  <meta property="og:description" content="Gym wear built on discipline, consistency and community.">
-  <meta property="og:image" content="assets/gym-gang-og.png">
+  <meta property="og:description" content="Gym wear built on discipline, consistency and community. 2–4 day delivery across Egypt.">
+  <meta property="og:image" content="https://gym-gang.pages.dev/assets/gym-gang-og.png">
   <meta property="og:image:alt" content="Gym Gang — Gym Wear Built Together">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -20,6 +22,24 @@
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/storefront.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "Gym Gang",
+    "url": "https://gym-gang.pages.dev/",
+    "logo": "https://gym-gang.pages.dev/assets/images/gg-logo.png",
+    "image": "https://gym-gang.pages.dev/assets/gym-gang-og.png",
+    "description": "Gym wear built on discipline, consistency and community.",
+    "telephone": "+201010565783",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cairo",
+      "addressCountry": "EG"
+    },
+    "priceRange": "250 EGP - 1400 EGP"
+  }
+  </script>
 </head>
 <body>
   <div class="utility-bar">
@@ -37,7 +57,8 @@
         <a href="#shop">Shop Drop</a>
         <a href="#crew">The Crew</a>
         <a href="#lab">Gear Lab</a>
-        <a href="#faq">FAQ</a><a href="#contact">Contact</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
       </div>
 
       <div class="nav-actions">
@@ -54,7 +75,8 @@
     <a href="#shop">Shop Drop</a>
     <a href="#crew">The Crew</a>
     <a href="#lab">Gear Lab</a>
-    <a href="#faq">FAQ</a><a href="#contact">Contact</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
   </div>
 
   <main id="top">
@@ -135,7 +157,7 @@
             <h2 class="display">Built to Train In</h2>
           </div>
           <p class="section-note">
-            Click any product image to inspect its full studio spec sheet, pick your size below, and send your bag in one tap on WhatsApp.
+            Click any product image to inspect its full studio spec sheet, pick your size below, and place your order in one tap.
           </p>
         </div>
 
@@ -150,26 +172,40 @@
 
           <div class="sort-wrap">
             <input type="search" class="search-input" id="search-input" placeholder="Search pieces" aria-label="Search products" autocomplete="off">
+            <select id="filter-size" aria-label="Filter by size">
+              <option value="">All sizes</option>
+            </select>
+            <select id="filter-color" aria-label="Filter by color">
+              <option value="">All colors</option>
+            </select>
+            <select id="filter-price" aria-label="Filter by price">
+              <option value="0">Any price</option>
+              <option value="400">Up to 400 EGP</option>
+              <option value="700">Up to 700 EGP</option>
+              <option value="1000">Up to 1,000 EGP</option>
+            </select>
             <button type="button" class="guide-link" id="guide-open-btn">Size guide</button>
             <span class="mono" id="catalog-count" style="font-size:12px;color:var(--ink-muted)">12 pieces</span>
-            <label for="sort-select">Sort</label>
-            <select id="sort-select">
+            <label for="sort-select" class="sr-only">Sort</label>
+            <select id="sort-select" aria-label="Sort products">
               <option value="featured">Featured order</option>
               <option value="low">Price: Low to high</option>
               <option value="high">Price: High to low</option>
+              <option value="newest">Newest</option>
+              <option value="best">Best selling</option>
             </select>
           </div>
         </div>
 
         <div class="product-grid" id="product-grid"></div>
-        <p class="no-results" id="no-results" hidden>No pieces match your search.</p>
+        <p class="no-results" id="no-results" hidden>No pieces match your search or filters.</p>
       </div>
     </section>
 
     <section class="band crew-band" id="crew">
       <div class="wrap crew-grid">
         <figure class="crew-photo">
-          <img src="assets/images/crew-split.jpg" alt="Gym Gang crew members smiling between sets wearing GG back-print tees and cap">
+          <img src="assets/images/crew-split.jpg" alt="Gym Gang crew members smiling between sets wearing GG back-print tees and cap" loading="lazy" decoding="async">
           <figcaption>
             <span>GG-CREW // TRAINING FLOOR</span>
             <span>ONE GANG. ONE MINDSET.</span>
@@ -297,7 +333,7 @@
           <p class="eyebrow">Drop 02 Access // Direct</p>
           <h2 class="display">Join the Gang</h2>
           <p>
-            Drop your email and code GANG10 (10% off your first order) is applied to your bag straight away, plus a WhatsApp ping before Drop 02 restocks and new colorways go live.
+            Drop your email and code GANG10 (10% off your first order) is applied to your bag straight away, plus early notice before Drop 02 restocks and new colorways go live.
           </p>
           <form class="join-form" id="join-form">
             <input type="email" id="join-email" placeholder="you@example.com" aria-label="Email address" required>
@@ -312,15 +348,15 @@
           <div class="faq-list">
             <details open>
               <summary>How do I place an order?</summary>
-              <p>Pick your sizes and add items to your bag, click Proceed to Checkout, fill in your Egypt delivery address, and tap Send Order on WhatsApp. Our team confirms every order directly.</p>
+              <p>Pick your sizes and add items to your bag, click Proceed to Checkout, fill in your Egypt delivery address, and submit your order. Your order is saved in our system with a unique tracking ID and confirmed directly on WhatsApp.</p>
             </details>
             <details>
               <summary>How much is shipping across Egypt?</summary>
-              <p>Flat 60 EGP across Cairo, Giza, Alexandria, and all governorates within 2–4 business days. Orders at or above 1,500 EGP unlock free delivery.</p>
+              <p>Flat 60 EGP across Cairo, Giza, Alexandria, and all 27 governorates within 2–4 business days. Orders at or above 1,500 EGP unlock free delivery.</p>
             </details>
             <details>
               <summary>What payment methods are accepted?</summary>
-              <p>You can choose Cash on Delivery, InstaPay, or Vodafone Cash inside checkout (transfer details are shared directly when confirming on WhatsApp).</p>
+              <p>You can choose Cash on Delivery, InstaPay, or Vodafone Cash inside checkout (plus online Card / Wallet payment via Paymob when enabled).</p>
             </details>
             <details>
               <summary>Is there a discount code?</summary>
@@ -334,19 +370,19 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <section class="band contact-band" id="contact">
-    <div class="wrap contact-inner">
-      <p class="eyebrow">Contact // Support</p>
-      <h2 class="display">Talk to the Gang</h2>
-      <p>Questions about sizes, orders or delivery? We reply fast on WhatsApp.</p>
-      <div class="contact-actions">
-        <a class="btn btn--wa" target="_blank" rel="noopener noreferrer" href="https://wa.me/201010565783?text=Hi%20Gym%20Gang!">WhatsApp us</a>
-        <a class="btn btn--ghost" href="tel:+201010565783">Call 0101 056 5783</a>
+    <section class="band contact-band" id="contact">
+      <div class="wrap contact-inner">
+        <p class="eyebrow">Contact // Support</p>
+        <h2 class="display">Talk to the Gang</h2>
+        <p>Questions about sizes, orders or delivery? We reply fast on WhatsApp.</p>
+        <div class="contact-actions">
+          <a class="btn btn--wa" id="contact-wa-link" target="_blank" rel="noopener noreferrer" href="https://wa.me/201010565783?text=Hi%20Gym%20Gang!">WhatsApp us</a>
+          <a class="btn btn--ghost" id="contact-tel-link" href="tel:+201010565783">Call 0101 056 5783</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
@@ -354,7 +390,12 @@
         <img src="assets/images/gg-logo.png" alt="GG mark">
         <span>GYM GANG // BUILT TOGETHER</span>
       </div>
-      <span>WhatsApp Orders: +20 10 10565783</span>
+      <div class="footer-links">
+        <a href="#privacy" data-policy="privacy">Privacy Policy</a>
+        <a href="#terms" data-policy="terms">Terms &amp; Conditions</a>
+        <a href="#shipping" data-policy="shipping">Shipping &amp; Returns</a>
+        <a href="/admin.html">Admin</a>
+      </div>
       <span>© 2026 Gym Gang. Discipline · Consistency · Community.</span>
     </div>
   </footer>
@@ -370,7 +411,6 @@
       <div class="ship-meter-fill" id="ship-fill"></div>
     </div>
     <p class="ship-note" id="ship-text"></p>
-
     <p class="eta-note" id="eta-note"></p>
 
     <div class="drawer-items" id="bag-items"></div>
@@ -394,23 +434,28 @@
 
     <form class="checkout-form" id="checkout-form" hidden>
       <input id="ck-name" type="text" placeholder="Full name" required autocomplete="name">
-      <input id="ck-phone" type="tel" placeholder="Phone number" required autocomplete="tel">
-      <select id="ck-city" aria-label="City">
+      <input id="ck-phone" type="tel" placeholder="Egyptian mobile (e.g. 01012345678)" required autocomplete="tel">
+      <input id="ck-email" type="email" placeholder="Email (optional)" autocomplete="email">
+      <select id="ck-city" aria-label="Governorate">
         <option value="Cairo">Cairo</option>
         <option value="Giza">Giza</option>
         <option value="Alexandria">Alexandria</option>
-        <option value="Other governorate">Other governorate</option>
       </select>
       <textarea id="ck-address" rows="2" placeholder="Street, building, floor, apartment" required></textarea>
+      <input id="ck-notes" type="text" placeholder="Delivery notes (optional)">
       <label class="pay-option">
-        <input type="radio" name="payment-method" value="Cash on delivery" checked>
+        <input type="radio" name="payment-method" value="cod" checked>
         <span>Cash on delivery</span>
       </label>
       <label class="pay-option">
-        <input type="radio" name="payment-method" value="InstaPay / Vodafone Cash">
+        <input type="radio" name="payment-method" value="transfer">
         <span>InstaPay or Vodafone Cash</span>
       </label>
-      <button class="btn" type="submit" style="width:100%">Send Order on WhatsApp</button>
+      <label class="pay-option" id="paymob-option-wrap" hidden>
+        <input type="radio" name="payment-method" value="paymob">
+        <span>Card / Mobile Wallet (Paymob)</span>
+      </label>
+      <button class="btn" type="submit" style="width:100%">Place Order &amp; Confirm on WhatsApp</button>
     </form>
   </aside>
 
@@ -426,6 +471,7 @@
         <div class="modal-price" id="modal-price"></div>
         <p class="modal-desc" id="modal-desc"></p>
         <ul class="modal-specs" id="modal-specs"></ul>
+        <div class="p-sizes" id="modal-colors" role="group" aria-label="Select color" hidden></div>
         <div class="p-sizes" id="modal-sizes" role="group" aria-label="Select size"></div>
         <button type="button" class="btn" id="modal-add-btn" style="width:100%">Add to Bag</button>
       </div>
@@ -439,13 +485,26 @@
         <span class="eyebrow">Fit // Drop 01</span>
         <h2 class="display" id="guide-title">Size Guide</h2>
         <table class="guide-table">
-          <tr><th scope="row">S</th><td>Under 65 kg</td></tr>
-          <tr><th scope="row">M</th><td>65 to 77 kg</td></tr>
-          <tr><th scope="row">L</th><td>78 to 91 kg</td></tr>
-          <tr><th scope="row">XL</th><td>92 kg and above</td></tr>
+          <tbody id="guide-table-body">
+            <tr><th scope="row">S</th><td>Under 65 kg</td></tr>
+            <tr><th scope="row">M</th><td>65 to 77 kg</td></tr>
+            <tr><th scope="row">L</th><td>78 to 91 kg</td></tr>
+            <tr><th scope="row">XL</th><td>92 kg and above</td></tr>
+          </tbody>
         </table>
-        <p class="modal-desc">Taller than 186 cm? Go one size up. 165 cm or shorter? Go one size down. Between sizes? Size up.</p>
+        <p class="modal-desc" id="guide-note-text">Taller than 186 cm? Go one size up. 165 cm or shorter? Go one size down. Between sizes? Size up.</p>
         <a class="btn" href="#lab" id="guide-use-btn" style="width:100%">Use the size finder</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="policy-modal" role="dialog" aria-modal="true" aria-labelledby="policy-title" aria-hidden="true">
+    <div class="modal-panel guide-panel" style="width:min(580px,100%)">
+      <div class="guide-body">
+        <button type="button" class="icon-close modal-close" id="policy-close-btn">Close</button>
+        <span class="eyebrow">Gym Gang // Store Policy</span>
+        <h2 class="display" id="policy-title">Policy</h2>
+        <div id="policy-body" class="policy-copy"></div>
       </div>
     </div>
   </div>

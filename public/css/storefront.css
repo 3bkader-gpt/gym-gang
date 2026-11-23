@@ -1709,3 +1709,57 @@
 .drawer-totals #discount-row span:last-child {
   color: var(--taupe-bright);
 }
+
+/* ===== Full-stack storefront extras: stock badges, compare-at price, policy links ===== */
+.p-compare {
+  color: var(--ink-dim);
+  font-weight: 400;
+  font-size: 12px;
+  margin-right: 4px;
+}
+
+.stock-note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--taupe-bright);
+  margin: -4px 0 10px;
+}
+
+.stock-note--out {
+  color: var(--rust);
+}
+
+.add-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  border-color: var(--line-dark);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-links a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+
+.footer-links a:hover {
+  color: var(--taupe-bright);
+  text-decoration: underline;
+}
+
+.policy-copy {
+  display: grid;
+  gap: 12px;
+  font-size: 14.5px;
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+.policy-copy strong {
+  color: var(--ink-bone);
+}
