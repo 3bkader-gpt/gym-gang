@@ -1,3 +1,4 @@
+export const BUILD_VERSION = '24dd7e46b0';
 // Shared helpers for the Gym Gang API (Cloudflare Pages Functions + D1).
 
 export const GOVERNORATES = [

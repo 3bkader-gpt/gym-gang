@@ -93,9 +93,14 @@
       return location.protocol !== 'file:';
     },
     async fetchConfigAndProducts() {
-      const [cfgRes, prodRes] = await Promise.all([fetch('/api/config'), fetch('/api/products')]);
+      const bust = Date.now();
+      const [cfgRes, prodRes] = await Promise.all([
+        fetch(`/api/config?_=${bust}`, { cache: 'no-store' }),
+        fetch(`/api/products?_=${bust}`, { cache: 'no-store' })
+      ]);
       const config = cfgRes.ok ? await cfgRes.json() : null;
       const productsData = prodRes.ok ? await prodRes.json() : null;
+      if (config?.version) checkVersionAndReloadIfStale(config.version);
       return { config, products: productsData?.products || null };
     },
     async validatePromo(code, subtotal) {
@@ -129,6 +134,28 @@
       return data;
     }
   };
+
+  function checkVersionAndReloadIfStale(serverVersion) {
+    const meta = document.querySelector('meta[name="app-version"]');
+    const localVersion = meta ? meta.getAttribute('content') : '';
+    if (!localVersion || !serverVersion || localVersion === serverVersion) return;
+    if (sessionStorage.getItem('gg_reloaded_ver') === serverVersion) return;
+    sessionStorage.setItem('gg_reloaded_ver', serverVersion);
+    const url = new URL(location.href);
+    url.searchParams.set('v', serverVersion);
+    location.replace(url.toString());
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && StoreApiClient.isOnlineMode()) {
+      window.GG.hydrateStoreFromApi?.();
+    }
+  });
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted && StoreApiClient.isOnlineMode()) {
+      window.GG.hydrateStoreFromApi?.();
+    }
+  });
 
   window.GG.byId = byId;
   window.GG.formatCurrency = formatCurrency;

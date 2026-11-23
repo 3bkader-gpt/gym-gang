@@ -1,6 +1,6 @@
 // Public (customer-facing) API handlers.
 import {
-  GOVERNORATES, HttpError, json, readJson, clientIp, rateLimit, normalizePhone, isEmail,
+  BUILD_VERSION, GOVERNORATES, HttpError, json, readJson, clientIp, rateLimit, normalizePhone, isEmail,
   cleanText, randomChars, formatEGP, getSettings, loadCatalog
 } from './util.js';
 import { paymobEnabled, createPaymobPayment, verifyPaymobHmac } from './paymob.js';
@@ -11,6 +11,7 @@ export async function getConfig({ env }) {
   const s = await getSettings(env.DB);
   return json(
     {
+      version: BUILD_VERSION,
       whatsapp: s.whatsapp,
       shippingFee: s.shippingFee,
       freeShippingThreshold: s.freeShippingThreshold,
