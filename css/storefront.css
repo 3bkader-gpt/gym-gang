@@ -1354,3 +1354,358 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Features ported from Gym_Gang (3): wishlist, search, size guide, promo, upsell, contact ===== */
+.p-card {
+  position: relative;
+}
+
+.hrt {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: rgba(11, 11, 10, 0.78);
+  color: var(--ink-bone);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease), transform 0.15s var(--ease);
+}
+
+.hrt svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.hrt:hover {
+  border-color: var(--taupe);
+}
+
+.hrt:active {
+  transform: scale(0.92);
+}
+
+.hrt[aria-pressed='true'] {
+  color: var(--rust);
+  border-color: var(--rust);
+}
+
+.hrt[aria-pressed='true'] svg {
+  fill: currentColor;
+}
+
+.sort-wrap {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.search-input {
+  width: min(220px, 100%);
+  padding: 9px 14px;
+  background: var(--bg-rack);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-sm);
+  color: var(--ink-bone);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.search-input::placeholder {
+  color: var(--ink-dim);
+}
+
+.search-input:focus,
+.promo-row input:focus {
+  outline: none;
+  border-color: var(--taupe);
+}
+
+.guide-link {
+  background: none;
+  border: 0;
+  padding: 4px 2px;
+  color: var(--taupe);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.guide-link:hover {
+  color: var(--ink-bone);
+}
+
+.no-results {
+  padding: 36px 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+/* Size guide modal */
+.guide-panel {
+  grid-template-columns: 1fr;
+  width: min(460px, 100%);
+}
+
+.guide-body {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.guide-body h2 {
+  font-size: 38px;
+  margin: 6px 0 14px;
+}
+
+.guide-table {
+  width: 100%;
+  margin-bottom: 14px;
+  border-collapse: collapse;
+}
+
+.guide-table th,
+.guide-table td {
+  padding: 11px 4px;
+  border-bottom: 1px solid var(--line-dark);
+  text-align: left;
+}
+
+.guide-table th {
+  width: 64px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--taupe-bright);
+}
+
+/* Contact */
+.contact-band {
+  background: var(--bg-rack);
+  border-top: 1px solid var(--line-dark);
+  text-align: center;
+}
+
+.contact-inner h2 {
+  font-size: clamp(36px, 4.4vw, 54px);
+  margin: 8px 0 12px;
+}
+
+.contact-inner > p:not(.eyebrow) {
+  max-width: 46ch;
+  margin: 0 auto 24px;
+  color: var(--ink-muted);
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn--wa {
+  background: #25d366;
+  border-color: #25d366;
+  color: #0b0b0a;
+}
+
+.btn--wa:hover {
+  background: var(--ink-bone);
+  border-color: var(--ink-bone);
+}
+
+/* Floating helpers */
+.wa-float,
+.to-top {
+  position: fixed;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 35;
+  background: var(--bg-rack);
+  border: 1px solid var(--taupe);
+  color: var(--ink-bone);
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease), opacity 0.2s var(--ease);
+}
+
+.wa-float {
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+.wa-float:hover,
+.to-top:hover {
+  background: var(--taupe);
+  color: var(--bg-iron);
+}
+
+.to-top {
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 520px) {
+  .wa-float span {
+    display: none;
+  }
+  .wa-float {
+    padding: 12px;
+  }
+}
+
+/* Bag: promo, upsell, delivery estimate, discount row */
+.bag-drawer {
+  overflow-y: auto;
+}
+
+.drawer-items {
+  flex: 1 0 110px;
+  overflow: visible;
+}
+
+.checkout-form {
+  max-height: none;
+  overflow: visible;
+}
+
+.bag-btn.has-items:not(.bump) {
+  animation: bag-glow 2s ease-in-out infinite;
+}
+
+@keyframes bag-glow {
+  50% {
+    box-shadow: 0 0 0 6px rgba(184, 169, 149, 0.18);
+  }
+}
+
+.eta-note {
+  margin: -4px 0 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.eta-note:empty {
+  display: none;
+}
+
+.promo-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.promo-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  background: var(--bg-iron);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-sm);
+  color: var(--ink-bone);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.promo-row button {
+  padding: 0 16px;
+  background: transparent;
+  border: 1px solid var(--taupe);
+  border-radius: var(--radius-sm);
+  color: var(--taupe);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.promo-row button:hover {
+  background: var(--taupe);
+  color: var(--bg-iron);
+}
+
+.promo-msg {
+  min-height: 1.3em;
+  margin: 4px 0 8px;
+  font-size: 13px;
+  color: var(--taupe-bright);
+}
+
+.upsell {
+  display: grid;
+  grid-template-columns: 54px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px dashed var(--taupe);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+}
+
+.upsell img {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.upsell small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+
+.upsell button {
+  padding: 9px 16px;
+  background: var(--taupe);
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--bg-iron);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.drawer-totals #discount-row span:last-child {
+  color: var(--taupe-bright);
+}

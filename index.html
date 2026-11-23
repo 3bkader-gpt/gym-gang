@@ -23,7 +23,7 @@
 </head>
 <body>
   <div class="utility-bar">
-    <span><strong>DROP 01 LIVE</strong> // FREE DELIVERY OVER 1,500 EGP ACROSS EGYPT // 7-DAY SIZE EXCHANGE</span>
+    <span><strong>DROP 01 LIVE</strong> // FREE DELIVERY ON 1,500+ EGP // JOIN THE GANG FOR 10% OFF YOUR FIRST ORDER</span>
   </div>
 
   <nav class="site-nav" aria-label="Primary navigation">
@@ -37,7 +37,7 @@
         <a href="#shop">Shop Drop</a>
         <a href="#crew">The Crew</a>
         <a href="#lab">Gear Lab</a>
-        <a href="#faq">FAQ</a>
+        <a href="#faq">FAQ</a><a href="#contact">Contact</a>
       </div>
 
       <div class="nav-actions">
@@ -54,7 +54,7 @@
     <a href="#shop">Shop Drop</a>
     <a href="#crew">The Crew</a>
     <a href="#lab">Gear Lab</a>
-    <a href="#faq">FAQ</a>
+    <a href="#faq">FAQ</a><a href="#contact">Contact</a>
   </div>
 
   <main id="top">
@@ -145,9 +145,12 @@
             <button type="button" class="filter-pill" data-filter="men" aria-pressed="false">Men (5)</button>
             <button type="button" class="filter-pill" data-filter="women" aria-pressed="false">Women (1)</button>
             <button type="button" class="filter-pill" data-filter="acc" aria-pressed="false">Accessories (6)</button>
+            <button type="button" class="filter-pill" data-filter="fav" aria-pressed="false">&#9825; Saved (<span id="fav-count">0</span>)</button>
           </div>
 
           <div class="sort-wrap">
+            <input type="search" class="search-input" id="search-input" placeholder="Search pieces" aria-label="Search products" autocomplete="off">
+            <button type="button" class="guide-link" id="guide-open-btn">Size guide</button>
             <span class="mono" id="catalog-count" style="font-size:12px;color:var(--ink-muted)">12 pieces</span>
             <label for="sort-select">Sort</label>
             <select id="sort-select">
@@ -159,6 +162,7 @@
         </div>
 
         <div class="product-grid" id="product-grid"></div>
+        <p class="no-results" id="no-results" hidden>No pieces match your search.</p>
       </div>
     </section>
 
@@ -293,11 +297,11 @@
           <p class="eyebrow">Drop 02 Access // Direct</p>
           <h2 class="display">Join the Gang</h2>
           <p>
-            Drop your email to open a direct WhatsApp ping so we notify you before Drop 02 restocks and new colorways go live.
+            Drop your email and code GANG10 (10% off your first order) is applied to your bag straight away, plus a WhatsApp ping before Drop 02 restocks and new colorways go live.
           </p>
           <form class="join-form" id="join-form">
             <input type="email" id="join-email" placeholder="you@example.com" aria-label="Email address" required>
-            <button class="btn" type="submit">Notify Me via WhatsApp</button>
+            <button class="btn" type="submit">Get early access</button>
           </form>
           <div class="join-msg" id="join-msg" role="status"></div>
         </div>
@@ -319,6 +323,10 @@
               <p>You can choose Cash on Delivery, InstaPay, or Vodafone Cash inside checkout (transfer details are shared directly when confirming on WhatsApp).</p>
             </details>
             <details>
+              <summary>Is there a discount code?</summary>
+              <p>Join the gang above and GANG10 (10% off your first order) is applied to your bag automatically, or type it into the promo box inside your bag.</p>
+            </details>
+            <details>
               <summary>What if the size does not fit right?</summary>
               <p>Message us on WhatsApp within 7 days of delivery with unworn gear and we will arrange a quick size exchange.</p>
             </details>
@@ -327,6 +335,18 @@
       </div>
     </section>
   </main>
+
+  <section class="band contact-band" id="contact">
+    <div class="wrap contact-inner">
+      <p class="eyebrow">Contact // Support</p>
+      <h2 class="display">Talk to the Gang</h2>
+      <p>Questions about sizes, orders or delivery? We reply fast on WhatsApp.</p>
+      <div class="contact-actions">
+        <a class="btn btn--wa" target="_blank" rel="noopener noreferrer" href="https://wa.me/201010565783?text=Hi%20Gym%20Gang!">WhatsApp us</a>
+        <a class="btn btn--ghost" href="tel:+201010565783">Call 0101 056 5783</a>
+      </div>
+    </div>
+  </section>
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
@@ -351,11 +371,22 @@
     </div>
     <p class="ship-note" id="ship-text"></p>
 
+    <p class="eta-note" id="eta-note"></p>
+
     <div class="drawer-items" id="bag-items"></div>
+
+    <div id="upsell"></div>
+
+    <div class="promo-row">
+      <input type="text" id="promo-input" placeholder="Promo code" aria-label="Promo code" autocomplete="off">
+      <button type="button" id="promo-apply-btn">Apply</button>
+    </div>
+    <p class="promo-msg" id="promo-msg" role="status" aria-live="polite"></p>
 
     <div class="drawer-totals">
       <div><span>Subtotal</span><span id="bag-subtotal">0 EGP</span></div>
       <div><span>Delivery</span><span id="bag-shipping">—</span></div>
+      <div id="discount-row" hidden><span id="discount-label">Promo</span><span id="bag-discount"></span></div>
       <div class="grand"><span>Total</span><span id="bag-total">0 EGP</span></div>
     </div>
 
@@ -400,6 +431,33 @@
       </div>
     </div>
   </div>
+
+  <div class="modal" id="guide-modal" role="dialog" aria-modal="true" aria-labelledby="guide-title" aria-hidden="true">
+    <div class="modal-panel guide-panel">
+      <div class="guide-body">
+        <button type="button" class="icon-close modal-close" id="guide-close-btn">Close</button>
+        <span class="eyebrow">Fit // Drop 01</span>
+        <h2 class="display" id="guide-title">Size Guide</h2>
+        <table class="guide-table">
+          <tr><th scope="row">S</th><td>Under 65 kg</td></tr>
+          <tr><th scope="row">M</th><td>65 to 77 kg</td></tr>
+          <tr><th scope="row">L</th><td>78 to 91 kg</td></tr>
+          <tr><th scope="row">XL</th><td>92 kg and above</td></tr>
+        </table>
+        <p class="modal-desc">Taller than 186 cm? Go one size up. 165 cm or shorter? Go one size down. Between sizes? Size up.</p>
+        <a class="btn" href="#lab" id="guide-use-btn" style="width:100%">Use the size finder</a>
+      </div>
+    </div>
+  </div>
+
+  <a class="wa-float" id="wa-help" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" href="https://wa.me/201010565783?text=Hi%20Gym%20Gang%2C%20I%20need%20help%20with%20my%20order%20%2F%20size.">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#25D366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.5-4.6A8.5 8.5 0 1 1 8 19.6z"/></svg>
+    <span>Need help?</span>
+  </a>
+
+  <button type="button" class="to-top" id="to-top-btn" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
+  </button>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 

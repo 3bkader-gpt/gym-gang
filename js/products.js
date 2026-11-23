@@ -4,8 +4,12 @@ window.GG.BRAND_CONFIG = {
   whatsapp: '201010565783',
   shippingFee: 60,
   freeShippingThreshold: 1500,
-  storageKey: 'gym_gang_bag_v2'
+  storageKey: 'gym_gang_bag_v2',
+  wishKey: 'gym_gang_wish_v1',
+  promoKey: 'gym_gang_promo_v1'
 };
+
+window.GG.PROMOS = { GANG10: 10 };
 
 window.GG.PRODUCTS = [
   {

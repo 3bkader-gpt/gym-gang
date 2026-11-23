@@ -41,7 +41,7 @@
     if (height <= 165 && idx > 0) idx -= 1;
 
     const teeSize = sizes[idx];
-    const hoodieSize = hoodieFit === 'oversized' ? sizes[Math.min(idx + 1, 3)] : teeSize;
+    const hoodieSize = hoodieFit === 'oversized' ? sizes[Math.max(idx - 1, 0)] : teeSize;
     const note =
       weight >= 115
         ? `Estimate for ${height} cm / ${weight} kg (XL is our largest Drop 01 cut — message us on WhatsApp to confirm measurements).`
@@ -121,7 +121,9 @@
       '_blank',
       'noopener,noreferrer'
     );
-    joinMsg.textContent = 'WhatsApp opt-in opened — hit send to join the Drop 02 broadcast list.';
+    window.GG.applyPromo('GANG10');
+    joinMsg.textContent =
+      'You’re in the gang. Code GANG10 is applied to your bag: 10% off your first order. Send the WhatsApp message that just opened to join the Drop 02 list.';
     joinForm.reset();
   });
 
@@ -142,7 +144,7 @@
     });
   });
 
-  const sections = ['shop', 'crew', 'lab', 'faq']
+  const sections = ['shop', 'crew', 'lab', 'faq', 'contact']
     .map((id) => document.getElementById(id))
     .filter(Boolean);
   const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
