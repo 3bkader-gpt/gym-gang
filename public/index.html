@@ -5,23 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="dark">
   <title>Gym Gang | Gym Wear Built Together</title>
-  <meta name="description" content="Gym Gang makes gym wear for people who train with discipline, consistency and community. Shop Drop 01 across Egypt and order directly online or via WhatsApp.">
-  <meta name="theme-color" content="#0B0B0A">
+  <meta name="description" content="Gym Gang makes gym wear for people who train with discipline, consistency and community. Shop Drop 01 across Egypt and order in one tap.">
+  <meta name="theme-color" content="#000000">
   <link rel="canonical" href="https://gym-gang.pages.dev/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gym-gang.pages.dev/">
   <meta property="og:title" content="Gym Gang | Built Together">
-  <meta property="og:description" content="Gym wear built on discipline, consistency and community. 2–4 day delivery across Egypt.">
+  <meta property="og:description" content="Gym wear built on discipline, consistency and community.">
   <meta property="og:image" content="https://gym-gang.pages.dev/assets/gym-gang-og.png">
   <meta property="og:image:alt" content="Gym Gang — Gym Wear Built Together">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/storefront.css">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat+Brush&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/storefront.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -42,486 +40,333 @@
   </script>
 </head>
 <body>
-  <div class="utility-bar">
-    <span><strong>DROP 01 LIVE</strong> // FREE DELIVERY ON 1,500+ EGP // JOIN THE GANG FOR 10% OFF YOUR FIRST ORDER</span>
+  <div class="ann">Free delivery on 1,500+ EGP &nbsp;&#10022;&nbsp; Join the gang for 10% off your first order</div>
+  <div class="pg" id="pg"></div>
+  <div class="ws" id="ws" aria-hidden="true"><div id="wp"></div><span id="wk">20 KG</span></div>
+  <div class="cu" id="cu" aria-hidden="true"></div>
+  <div id="ld" role="status" aria-label="Loading Gym Gang">
+    <div class="i2">
+      <i class="i2g"></i>
+      <div class="i2l"><img src="/assets/images/gg-logo.png" alt="Gym Gang"></div>
+      <i class="i2r"></i>
+      <p class="i2t">Built together</p>
+    </div>
+    <span class="i2k">Tap to skip</span>
   </div>
 
-  <nav class="site-nav" aria-label="Primary navigation">
-    <div class="wrap nav-inner">
-      <a class="brand-mark" href="#top" aria-label="Gym Gang home">
-        <img src="assets/images/gg-logo.png" alt="Gym Gang GG mark">
-        <span>Gym Gang</span>
-      </a>
-
-      <div class="nav-links">
-        <a href="#shop">Shop Drop</a>
-        <a href="#crew">The Crew</a>
-        <a href="#lab">Gear Lab</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-      </div>
-
-      <div class="nav-actions">
-        <button type="button" class="bag-btn" id="bag-open-btn" aria-label="Open shopping bag">
-          <span>Bag</span>
-          <span class="bag-count" id="bag-count">0</span>
-        </button>
-        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
-      </div>
+  <nav>
+    <a href="#top" aria-label="Gym Gang home"><img src="/assets/images/gg-logo.png" alt="GG"></a>
+    <div class="links">
+      <a href="#shop">Shop</a>
+      <a href="#mf">Manifesto</a>
+      <a href="#gang">The gang</a>
+      <a href="#lab">Gear lab</a>
+      <a href="#join">Join</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button type="button" class="cart" id="cart">Cart (<span id="n">0</span>)</button>
+      <button type="button" class="snd" id="snd" aria-pressed="false">Sound off</button>
+      <button type="button" class="mb" id="mb" aria-expanded="false" aria-controls="mm">Menu</button>
     </div>
   </nav>
-
-  <div class="mobile-nav" id="mobile-nav">
-    <a href="#shop">Shop Drop</a>
-    <a href="#crew">The Crew</a>
-    <a href="#lab">Gear Lab</a>
-    <a href="#faq">FAQ</a>
+  <div class="mm" id="mm">
+    <a href="#shop">Shop</a>
+    <a href="#mf">Manifesto</a>
+    <a href="#gang">The gang</a>
+    <a href="#lab">Gear lab</a>
+    <a href="#join">Join</a>
     <a href="#contact">Contact</a>
   </div>
 
-  <main id="top">
-    <header class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="hero-tag">
-            <span class="hero-dot" aria-hidden="true"></span>
-            <span class="eyebrow">First Drop // Cairo, Egypt</span>
-          </div>
-          <h1 class="display hero-title">
-            Built Together.<br>
-            <span class="accent">Worn Every Rep.</span>
-          </h1>
-          <p class="hero-lead">
-            Compression tops, heavyweight fleece, and lifting hardware designed for lifters who show up with discipline, consistency, and community.
-          </p>
-          <div class="hero-cta">
-            <a class="btn" href="#shop">Shop Drop 01</a>
-            <a class="btn btn--ghost" href="#lab">Find Your Size</a>
-          </div>
-          <dl class="hero-specs">
-            <div>
-              <dt>Collection</dt>
-              <dd>12 Pieces</dd>
-            </div>
-            <div>
-              <dt>Delivery (Egypt)</dt>
-              <dd>2–4 Days · 60 EGP</dd>
-            </div>
-            <div>
-              <dt>Checkout</dt>
-              <dd>COD · InstaPay · VF Cash</dd>
-            </div>
-          </dl>
-        </div>
-
-        <figure class="hero-frame">
-          <img src="assets/images/hero-crew.jpg" alt="Three Gym Gang athletes wearing matte black and stone GG tees">
-          <figcaption class="hero-caption">
-            <span><strong>DROP 01 LOOKBOOK</strong> // GG CREW</span>
-            <span>DISCIPLINE · CONSISTENCY · COMMUNITY</span>
-          </figcaption>
-        </figure>
-      </div>
-    </header>
-
-    <section class="spec-strip" aria-label="Store highlights">
-      <div class="wrap spec-grid">
-        <div class="spec-cell">
-          <div class="spec-num">01 / FABRIC</div>
-          <h2>4-Way Stretch Knit</h2>
-          <p>Moisture-wicking compression builds and heavyweight cotton layers made for heavy sessions.</p>
-        </div>
-        <div class="spec-cell">
-          <div class="spec-num">02 / DELIVERY</div>
-          <h2>2–4 Days Nationwide</h2>
-          <p>60 EGP flat rate anywhere in Egypt. Free shipping unlocked automatically at 1,500 EGP.</p>
-        </div>
-        <div class="spec-cell">
-          <div class="spec-num">03 / PAYMENT</div>
-          <h2>Flexible Checkout</h2>
-          <p>Pay Cash on Delivery, InstaPay, or Vodafone Cash directly with our team on WhatsApp.</p>
-        </div>
-        <div class="spec-cell">
-          <div class="spec-num">04 / FIT</div>
-          <h2>7-Day Size Exchange</h2>
-          <p>Wrong fit out of the bag? Message us within 7 days and we swap it out hassle-free.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="band" id="shop">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Catalog // The First Drop</p>
-            <h2 class="display">Built to Train In</h2>
-          </div>
-          <p class="section-note">
-            Click any product image to inspect its full studio spec sheet, pick your size below, and place your order in one tap.
-          </p>
-        </div>
-
-        <div class="shop-controls">
-          <div class="filter-pills" role="group" aria-label="Filter products by category">
-            <button type="button" class="filter-pill" data-filter="all" aria-pressed="true">All (12)</button>
-            <button type="button" class="filter-pill" data-filter="men" aria-pressed="false">Men (5)</button>
-            <button type="button" class="filter-pill" data-filter="women" aria-pressed="false">Women (1)</button>
-            <button type="button" class="filter-pill" data-filter="acc" aria-pressed="false">Accessories (6)</button>
-            <button type="button" class="filter-pill" data-filter="fav" aria-pressed="false">&#9825; Saved (<span id="fav-count">0</span>)</button>
-          </div>
-
-          <div class="sort-wrap">
-            <input type="search" class="search-input" id="search-input" placeholder="Search pieces" aria-label="Search products" autocomplete="off">
-            <select id="filter-size" aria-label="Filter by size">
-              <option value="">All sizes</option>
-            </select>
-            <select id="filter-color" aria-label="Filter by color">
-              <option value="">All colors</option>
-            </select>
-            <select id="filter-price" aria-label="Filter by price">
-              <option value="0">Any price</option>
-              <option value="400">Up to 400 EGP</option>
-              <option value="700">Up to 700 EGP</option>
-              <option value="1000">Up to 1,000 EGP</option>
-            </select>
-            <button type="button" class="guide-link" id="guide-open-btn">Size guide</button>
-            <span class="mono" id="catalog-count" style="font-size:12px;color:var(--ink-muted)">12 pieces</span>
-            <label for="sort-select" class="sr-only">Sort</label>
-            <select id="sort-select" aria-label="Sort products">
-              <option value="featured">Featured order</option>
-              <option value="low">Price: Low to high</option>
-              <option value="high">Price: High to low</option>
-              <option value="newest">Newest</option>
-              <option value="best">Best selling</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="product-grid" id="product-grid"></div>
-        <p class="no-results" id="no-results" hidden>No pieces match your search or filters.</p>
-      </div>
-    </section>
-
-    <section class="band crew-band" id="crew">
-      <div class="wrap crew-grid">
-        <figure class="crew-photo">
-          <img src="assets/images/crew-split.jpg" alt="Gym Gang crew members smiling between sets wearing GG back-print tees and cap" loading="lazy" decoding="async">
-          <figcaption>
-            <span>GG-CREW // TRAINING FLOOR</span>
-            <span>ONE GANG. ONE MINDSET.</span>
-          </figcaption>
-        </figure>
-
-        <div class="crew-copy">
-          <p class="eyebrow">Built Together // Brand Standard</p>
-          <h2 class="display">We Build Standards</h2>
-          <p>
-            We do not chase hype cycles or throwaway prints. Gym Gang started on the training floor for people who respect the work, track their progression, and push the crew next to them.
-          </p>
-
-          <div class="pillars">
-            <div class="pillar">
-              <span class="pillar-idx">01 //</span>
-              <div>
-                <h3>Discipline</h3>
-                <p>Show up on tired days, hit the working sets, and keep promises to yourself.</p>
-              </div>
-            </div>
-            <div class="pillar">
-              <span class="pillar-idx">02 //</span>
-              <div>
-                <h3>Consistency</h3>
-                <p>Progress is built in boring weeks stacked back to back, not one loud highlight.</p>
-              </div>
-            </div>
-            <div class="pillar">
-              <span class="pillar-idx">03 //</span>
-              <div>
-                <h3>Community</h3>
-                <p>Training beside people with the same standard pulls everybody's floor higher.</p>
-              </div>
-            </div>
-          </div>
-
-          <a class="btn btn--dark" href="#shop">Explore Drop 01</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="band" id="lab">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Gear Lab // Training Utilities</p>
-            <h2 class="display">Dial In Fit &amp; Load</h2>
-          </div>
-          <p class="section-note">
-            Estimate your compression &amp; hoodie sizing directly into the shop grid, or calculate exact Olympic bar plate loading before stepping under the bar.
-          </p>
-        </div>
-
-        <div class="lab-grid">
-          <div class="lab-card">
-            <div class="lab-card-head">
-              <h3 class="display">Find Your Size</h3>
-              <span class="eyebrow">GG-01 &amp; GG-04</span>
-            </div>
-            <p class="lab-card-sub">Enter height, weight, and preferred hoodie cut to pre-select sizes across the store.</p>
-
-            <form id="size-finder-form">
-              <div class="field-row">
-                <div class="field">
-                  <label for="sf-height">Height (cm)</label>
-                  <input id="sf-height" type="number" inputmode="numeric" min="140" max="220" placeholder="178" required>
-                </div>
-                <div class="field">
-                  <label for="sf-weight">Weight (kg)</label>
-                  <input id="sf-weight" type="number" inputmode="numeric" min="35" max="200" placeholder="76" required>
-                </div>
-              </div>
-              <div class="field">
-                <label for="sf-fit">Hoodie Fit Preference</label>
-                <select id="sf-fit">
-                  <option value="oversized">Relaxed / Oversized</option>
-                  <option value="true">True to size</option>
-                </select>
-              </div>
-              <button class="btn" type="submit" style="width:100%">Calculate My Size</button>
-            </form>
-
-            <div class="size-result" id="size-result" role="status" aria-live="polite">
-              <small style="margin-top:0">Your Compression Tee and Hoodie size estimate will appear here.</small>
-            </div>
-          </div>
-
-          <div class="lab-card">
-            <div class="lab-card-head">
-              <h3 class="display">Plate Loader</h3>
-              <span class="eyebrow">20 KG Olympic Bar</span>
-            </div>
-            <p class="lab-card-sub">Pick a working total weight to inspect exact per-side plate combinations.</p>
-
-            <div class="plate-readout">
-              <strong id="plate-weight-val">100</strong>
-              <span>kg total</span>
-            </div>
-
-            <div class="bar-stage" id="bar-stage" aria-hidden="true"></div>
-
-            <div class="field">
-              <label for="plate-range">Target Total Weight (20–300 kg)</label>
-              <input class="plate-range" id="plate-range" type="range" min="20" max="300" step="2.5" value="100">
-            </div>
-
-            <div class="weight-chips" role="group" aria-label="Common bar weights">
-              <button type="button" data-weight="60">60 kg</button>
-              <button type="button" data-weight="100">100 kg</button>
-              <button type="button" data-weight="140">140 kg</button>
-              <button type="button" data-weight="180">180 kg</button>
-              <button type="button" data-weight="220">220 kg</button>
-            </div>
-
-            <p class="plate-breakdown" id="plate-breakdown" role="status" aria-live="polite"></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band" id="faq" style="border-top:1px solid var(--line-dark)">
-      <div class="wrap bottom-split">
-        <div class="join-box">
-          <p class="eyebrow">Drop 02 Access // Direct</p>
-          <h2 class="display">Join the Gang</h2>
-          <p>
-            Drop your email and code GANG10 (10% off your first order) is applied to your bag straight away, plus early notice before Drop 02 restocks and new colorways go live.
-          </p>
-          <form class="join-form" id="join-form">
-            <input type="email" id="join-email" placeholder="you@example.com" aria-label="Email address" required>
-            <button class="btn" type="submit">Get early access</button>
-          </form>
-          <div class="join-msg" id="join-msg" role="status"></div>
-        </div>
-
-        <div>
-          <p class="eyebrow">Order Details // Support</p>
-          <h2 class="display" style="font-size:clamp(34px,4vw,48px);margin:8px 0 18px">Before You Order</h2>
-          <div class="faq-list">
-            <details open>
-              <summary>How do I place an order?</summary>
-              <p>Pick your sizes and add items to your bag, click Proceed to Checkout, fill in your Egypt delivery address, and submit your order. Your order is saved in our system with a unique tracking ID and confirmed directly on WhatsApp.</p>
-            </details>
-            <details>
-              <summary>How much is shipping across Egypt?</summary>
-              <p>Flat 60 EGP across Cairo, Giza, Alexandria, and all 27 governorates within 2–4 business days. Orders at or above 1,500 EGP unlock free delivery.</p>
-            </details>
-            <details>
-              <summary>What payment methods are accepted?</summary>
-              <p>You can choose Cash on Delivery, InstaPay, or Vodafone Cash inside checkout (plus online Card / Wallet payment via Paymob when enabled).</p>
-            </details>
-            <details>
-              <summary>Is there a discount code?</summary>
-              <p>Join the gang above and GANG10 (10% off your first order) is applied to your bag automatically, or type it into the promo box inside your bag.</p>
-            </details>
-            <details>
-              <summary>What if the size does not fit right?</summary>
-              <p>Message us on WhatsApp within 7 days of delivery with unworn gear and we will arrange a quick size exchange.</p>
-            </details>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band contact-band" id="contact">
-      <div class="wrap contact-inner">
-        <p class="eyebrow">Contact // Support</p>
-        <h2 class="display">Talk to the Gang</h2>
-        <p>Questions about sizes, orders or delivery? We reply fast on WhatsApp.</p>
-        <div class="contact-actions">
-          <a class="btn btn--wa" id="contact-wa-link" target="_blank" rel="noopener noreferrer" href="https://wa.me/201010565783?text=Hi%20Gym%20Gang!">WhatsApp us</a>
-          <a class="btn btn--ghost" id="contact-tel-link" href="tel:+201010565783">Call 0101 056 5783</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <div class="footer-brand">
-        <img src="assets/images/gg-logo.png" alt="GG mark">
-        <span>GYM GANG // BUILT TOGETHER</span>
-      </div>
-      <div class="footer-links">
-        <a href="#privacy" data-policy="privacy">Privacy Policy</a>
-        <a href="#terms" data-policy="terms">Terms &amp; Conditions</a>
-        <a href="#shipping" data-policy="shipping">Shipping &amp; Returns</a>
-        <a href="/admin.html">Admin</a>
-      </div>
-      <span>© 2026 Gym Gang. Discipline · Consistency · Community.</span>
+  <header class="hero" id="top">
+    <div class="bg"></div>
+    <div class="lit" id="lit"></div>
+    <div class="in">
+      <img class="lg" src="/assets/images/gg-logo.png" alt="Gym Gang GG logo">
+      <h1 class="d">Gym Gang</h1>
+      <p class="sp">Discipline. Consistency. Community.</p>
+      <a class="btn" href="#shop">Shop the drop</a>
+      <div class="slg" aria-hidden="true">One gang.<br>One mindset.</div>
+      <p class="hint">Move over the photo to light up the gym &middot; Hold &amp; release anywhere to clap chalk</p>
     </div>
+  </header>
+
+  <div class="tk d" aria-hidden="true"><div id="tk"></div></div>
+
+  <section id="shop">
+    <p class="sp rv">The first drop</p>
+    <h2 class="d rv">Built to train in</h2>
+    <div class="flt" role="group" aria-label="Filter products">
+      <button type="button" data-k="all" aria-pressed="true">All</button>
+      <button type="button" data-k="men" aria-pressed="false">Men</button>
+      <button type="button" data-k="women" aria-pressed="false">Women</button>
+      <button type="button" data-k="acc" aria-pressed="false">Accessories</button>
+      <button type="button" data-k="fav" aria-pressed="false">&#9825; Saved (<span id="fc">0</span>)</button>
+    </div>
+    <div class="tools">
+      <div class="tools-left">
+        <input type="search" class="se" id="search-input" placeholder="Search pieces" aria-label="Search products" autocomplete="off">
+        <select id="filter-size" aria-label="Filter by size">
+          <option value="">All sizes</option>
+        </select>
+        <select id="filter-color" aria-label="Filter by color">
+          <option value="">All colors</option>
+        </select>
+        <select id="filter-price" aria-label="Filter by price">
+          <option value="0">Any price</option>
+          <option value="400">Up to 400 EGP</option>
+          <option value="700">Up to 700 EGP</option>
+          <option value="1000">Up to 1,000 EGP</option>
+        </select>
+        <button type="button" class="lnk" id="sgb">Size guide</button>
+      </div>
+      <div class="tools-right">
+        <span id="catalog-count">12 pieces</span>
+        <label>Sort
+          <select id="srt">
+            <option value="featured">Featured</option>
+            <option value="lo">Price: low to high</option>
+            <option value="hi">Price: high to low</option>
+            <option value="newest">Newest</option>
+            <option value="best">Best selling</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="grid" id="products"></div>
+    <p class="nr" id="no-results" hidden>No pieces match your search or filters.</p>
+  </section>
+
+  <div class="tr tr2">
+    <div>
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#A99C8A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+      <span><b>Premium quality</b>Built to last through every set</span>
+    </div>
+    <div>
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#A99C8A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>
+      <span><b>Fast delivery</b>2 to 4 days across Egypt</span>
+    </div>
+    <div>
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#A99C8A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15.5 14.3c3 0 5.5 2 5.5 5.2"/></svg>
+      <span><b>Strong community</b>Train with the gang</span>
+    </div>
+    <div>
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#A99C8A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0116 0v2"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19c0 1.5-2 2-5 2"/></svg>
+      <span><b>Dedicated support</b>Order and size help on WhatsApp</span>
+    </div>
+  </div>
+
+  <section class="mf" id="mf" aria-label="Manifesto">
+    <p id="mfp">We do not follow trends. We build standards. Gym Gang is more than training. It is a lifestyle built on discipline, consistency and community. One gang. One mindset.</p>
+  </section>
+
+  <section id="gang">
+    <div class="split">
+      <img class="rv" src="/assets/images/crew-split.jpg" alt="The Gym Gang crew laughing between sets" loading="lazy" decoding="async">
+      <div class="rv">
+        <p class="sp">Built together</p>
+        <h2 class="d">We build standards</h2>
+        <p>We don’t follow trends. Gym Gang is more than training. It’s a lifestyle built on discipline, consistency and community.</p>
+        <div class="vals">
+          <div><b class="d">Discipline</b></div>
+          <div><b class="d">Consistency</b></div>
+          <div><b class="d">Community</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ecg" aria-hidden="true">
+    <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
+      <path class="b" pathLength="1" d="M0 45H420l10-6 10 6H500l12-38 18 78 16-60 10 22H640l12-8 12 8H1200"/>
+      <path class="p" pathLength="1" d="M0 45H420l10-6 10 6H500l12-38 18 78 16-60 10 22H640l12-8 12 8H1200"/>
+    </svg>
+  </div>
+
+  <section id="lab">
+    <p class="sp rv">Gear lab</p>
+    <h2 class="d rv">Train smarter</h2>
+    <div class="lab">
+      <div class="pn rv">
+        <h3 class="d">Find your size</h3>
+        <p>Enter your height and weight and we’ll suggest your size.</p>
+        <form id="sf">
+          <label for="ht">Height (cm)</label>
+          <input id="ht" type="number" inputmode="numeric" min="140" max="220" required>
+          <label for="wt">Weight (kg)</label>
+          <input id="wt" type="number" inputmode="numeric" min="35" max="200" required>
+          <label for="hf">Hoodie fit</label>
+          <select id="hf">
+            <option value="o">Oversized</option>
+            <option value="t">True to size</option>
+          </select>
+          <button class="btn" type="submit" style="margin-top:16px;width:100%">Get my size</button>
+        </form>
+        <div id="sr" role="status" aria-live="polite"></div>
+      </div>
+      <div class="pn rv">
+        <h3 class="d">Plate loader</h3>
+        <p>Pick your target weight and see how to load the bar.</p>
+        <div id="pwv">100</div><span> kg total</span>
+        <div class="pbar" id="pbar" aria-hidden="true"></div>
+        <label for="pw">Target weight (kg)</label>
+        <input id="pw" type="range" min="20" max="300" step="2.5" value="100">
+        <div class="chips">
+          <button type="button" data-w="60">60</button>
+          <button type="button" data-w="100">100</button>
+          <button type="button" data-w="140">140</button>
+          <button type="button" data-w="180">180</button>
+        </div>
+        <p id="pr" role="status" aria-live="polite" style="margin-top:14px"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="join" id="join">
+    <p class="sp rv">One gang. One mindset.</p>
+    <h2 class="d rv">Join the gang</h2>
+    <form id="f">
+      <input type="email" id="em" placeholder="Your email" aria-label="Email" required>
+      <button class="btn" type="submit">Get early access</button>
+    </form>
+    <div class="msg" id="msg" role="status"></div>
+  </section>
+
+  <section id="faq">
+    <p class="sp rv" style="text-align:center">Questions</p>
+    <h2 class="d rv" style="text-align:center">Before you order</h2>
+    <div class="faq">
+      <details open>
+        <summary>How do I order?</summary>
+        <p>Add pieces to your cart, press Checkout, fill in your details and submit your order. Your order is saved in our database with a unique tracking ID and confirmed directly on WhatsApp.</p>
+      </details>
+      <details>
+        <summary>How much is delivery?</summary>
+        <p>60 EGP anywhere across all 27 Egyptian governorates. Free for orders of 1,500 EGP or more.</p>
+      </details>
+      <details>
+        <summary>Can I pay on delivery?</summary>
+        <p>Yes. You can also pay by InstaPay or Vodafone Cash (and online Card / Mobile Wallet via Paymob when enabled).</p>
+      </details>
+      <details>
+        <summary>Is there a discount code?</summary>
+        <p>Join the gang above and code GANG10 (10% off your first order) is applied to your cart automatically, or type it in the promo box inside your cart.</p>
+      </details>
+      <details>
+        <summary>What if the size doesn’t fit?</summary>
+        <p>Message us within 7 days and we’ll exchange it.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="ct" id="contact">
+    <p class="sp">Contact</p>
+    <h2 class="d">Talk to the gang</h2>
+    <p>Questions about sizes, orders or delivery? We reply fast on WhatsApp.</p>
+    <div class="bt">
+      <a class="g" id="contact-wa-link" target="_blank" rel="noopener" href="https://wa.me/201010565783?text=Hi%20Gym%20Gang!">WhatsApp us</a>
+      <a id="contact-tel-link" href="tel:+201010565783">Call 0101 056 5783</a>
+    </div>
+    <small>WhatsApp 0101 056 5783</small>
+  </section>
+
+  <div class="tk tk2 d" aria-hidden="true"><div id="tk2"></div></div>
+
+  <footer>
+    <img src="/assets/images/gg-logo.png" alt="GG">
+    <span class="fw">GYM GANG</span>
+    <div class="footer-links">
+      <a href="#privacy" data-policy="privacy">Privacy Policy</a>
+      <a href="#terms" data-policy="terms">Terms &amp; Conditions</a>
+      <a href="#shipping" data-policy="shipping">Shipping &amp; Returns</a>
+      <a href="/admin">Admin</a>
+    </div>
+    <span>© 2026 Gym Gang. We are Gym Gang.</span>
   </footer>
 
-  <div class="drawer-backdrop" id="drawer-backdrop"></div>
-  <aside class="bag-drawer" id="bag-drawer" aria-label="Shopping bag" aria-hidden="true">
-    <div class="drawer-head">
-      <h2 class="display">Your Bag</h2>
-      <button type="button" class="icon-close" id="drawer-close-btn">Close</button>
+  <div class="ov" id="ov"></div>
+  <aside class="dr" id="dr" aria-label="Cart">
+    <div class="dh d">Your cart<button type="button" id="x">Close</button></div>
+    <div class="bar"><div id="bf"></div></div>
+    <p id="ship"></p>
+    <p id="eta"></p>
+    <div id="items"></div>
+    <div id="ups"></div>
+    <div class="pm">
+      <input id="pc2" placeholder="Promo code" aria-label="Promo code" autocomplete="off">
+      <button type="button" id="pa">Apply</button>
     </div>
-
-    <div class="ship-meter" aria-hidden="true">
-      <div class="ship-meter-fill" id="ship-fill"></div>
+    <p id="pmsg" role="status" aria-live="polite"></p>
+    <div class="tot">
+      <div><span>Subtotal</span><span id="sub">0 EGP</span></div>
+      <div><span>Delivery</span><span id="dl">-</span></div>
+      <div id="dsr" hidden><span id="dsl">Promo</span><span id="dsv"></span></div>
+      <div class="g"><span>Total</span><span id="tt">0 EGP</span></div>
     </div>
-    <p class="ship-note" id="ship-text"></p>
-    <p class="eta-note" id="eta-note"></p>
-
-    <div class="drawer-items" id="bag-items"></div>
-
-    <div id="upsell"></div>
-
-    <div class="promo-row">
-      <input type="text" id="promo-input" placeholder="Promo code" aria-label="Promo code" autocomplete="off">
-      <button type="button" id="promo-apply-btn">Apply</button>
-    </div>
-    <p class="promo-msg" id="promo-msg" role="status" aria-live="polite"></p>
-
-    <div class="drawer-totals">
-      <div><span>Subtotal</span><span id="bag-subtotal">0 EGP</span></div>
-      <div><span>Delivery</span><span id="bag-shipping">—</span></div>
-      <div id="discount-row" hidden><span id="discount-label">Promo</span><span id="bag-discount"></span></div>
-      <div class="grand"><span>Total</span><span id="bag-total">0 EGP</span></div>
-    </div>
-
-    <button type="button" class="btn" id="checkout-toggle-btn" style="width:100%;margin-top:12px" hidden>Proceed to Checkout</button>
-
-    <form class="checkout-form" id="checkout-form" hidden>
-      <input id="ck-name" type="text" placeholder="Full name" required autocomplete="name">
-      <input id="ck-phone" type="tel" placeholder="Egyptian mobile (e.g. 01012345678)" required autocomplete="tel">
-      <input id="ck-email" type="email" placeholder="Email (optional)" autocomplete="email">
-      <select id="ck-city" aria-label="Governorate">
+    <button type="button" class="btn" id="co" style="width:100%;margin-top:12px" hidden>Checkout</button>
+    <form id="ck" hidden>
+      <input id="nm" placeholder="Full name" required autocomplete="name">
+      <input id="ph" type="tel" placeholder="Egyptian mobile (e.g. 01012345678)" required autocomplete="tel">
+      <input id="em2" type="email" placeholder="Email (optional)" autocomplete="email">
+      <select id="ct" aria-label="Governorate">
         <option value="Cairo">Cairo</option>
         <option value="Giza">Giza</option>
         <option value="Alexandria">Alexandria</option>
       </select>
-      <textarea id="ck-address" rows="2" placeholder="Street, building, floor, apartment" required></textarea>
-      <input id="ck-notes" type="text" placeholder="Delivery notes (optional)">
-      <label class="pay-option">
-        <input type="radio" name="payment-method" value="cod" checked>
-        <span>Cash on delivery</span>
-      </label>
-      <label class="pay-option">
-        <input type="radio" name="payment-method" value="transfer">
-        <span>InstaPay or Vodafone Cash</span>
-      </label>
-      <label class="pay-option" id="paymob-option-wrap" hidden>
-        <input type="radio" name="payment-method" value="paymob">
-        <span>Card / Mobile Wallet (Paymob)</span>
-      </label>
-      <button class="btn" type="submit" style="width:100%">Place Order &amp; Confirm on WhatsApp</button>
+      <textarea id="ad" rows="2" placeholder="Full address (street, building, floor, apartment)" required></textarea>
+      <input id="nt" placeholder="Delivery notes (optional)">
+      <label><input type="radio" name="pm" value="cod" checked style="width:auto">Cash on delivery</label>
+      <label><input type="radio" name="pm" value="transfer" style="width:auto">InstaPay or Vodafone Cash</label>
+      <label id="paymob-option-wrap" hidden><input type="radio" name="pm" value="paymob" style="width:auto">Card / Mobile Wallet (Paymob)</label>
+      <button class="btn" type="submit">Send order on WhatsApp</button>
     </form>
   </aside>
 
-  <div class="modal" id="quickview-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
-    <div class="modal-panel">
-      <div class="modal-media">
-        <img id="modal-img" alt="">
+  <div class="lb" id="lb"><div><img id="lbi" alt=""><p id="lbt"></p></div></div>
+
+  <div class="sgm" id="sgm" hidden>
+    <div class="sgi">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3 class="d" style="margin:0">Size guide</h3>
+        <button type="button" class="lnk" id="sgx">Close</button>
       </div>
-      <div class="modal-info">
-        <button type="button" class="icon-close modal-close" id="modal-close-btn">Close</button>
-        <span class="eyebrow" id="modal-sku"></span>
-        <h2 class="display" id="modal-title"></h2>
-        <div class="modal-price" id="modal-price"></div>
-        <p class="modal-desc" id="modal-desc"></p>
-        <ul class="modal-specs" id="modal-specs"></ul>
-        <div class="p-sizes" id="modal-colors" role="group" aria-label="Select color" hidden></div>
-        <div class="p-sizes" id="modal-sizes" role="group" aria-label="Select size"></div>
-        <button type="button" class="btn" id="modal-add-btn" style="width:100%">Add to Bag</button>
-      </div>
+      <table style="margin-top:12px">
+        <tbody id="guide-table-body">
+          <tr><td><b>S</b></td><td>Under 65 kg</td></tr>
+          <tr><td><b>M</b></td><td>65 to 77 kg</td></tr>
+          <tr><td><b>L</b></td><td>78 to 91 kg</td></tr>
+          <tr><td><b>XL</b></td><td>92 kg and above</td></tr>
+        </tbody>
+      </table>
+      <p id="guide-note-text">Taller than 186 cm? Go one size up. 165 cm or shorter? Go one size down. Between sizes? Size up.</p>
+      <a class="btn" href="#lab" id="sgf" style="width:100%;text-align:center">Use the size finder</a>
     </div>
   </div>
 
-  <div class="modal" id="guide-modal" role="dialog" aria-modal="true" aria-labelledby="guide-title" aria-hidden="true">
-    <div class="modal-panel guide-panel">
-      <div class="guide-body">
-        <button type="button" class="icon-close modal-close" id="guide-close-btn">Close</button>
-        <span class="eyebrow">Fit // Drop 01</span>
-        <h2 class="display" id="guide-title">Size Guide</h2>
-        <table class="guide-table">
-          <tbody id="guide-table-body">
-            <tr><th scope="row">S</th><td>Under 65 kg</td></tr>
-            <tr><th scope="row">M</th><td>65 to 77 kg</td></tr>
-            <tr><th scope="row">L</th><td>78 to 91 kg</td></tr>
-            <tr><th scope="row">XL</th><td>92 kg and above</td></tr>
-          </tbody>
-        </table>
-        <p class="modal-desc" id="guide-note-text">Taller than 186 cm? Go one size up. 165 cm or shorter? Go one size down. Between sizes? Size up.</p>
-        <a class="btn" href="#lab" id="guide-use-btn" style="width:100%">Use the size finder</a>
+  <div class="sgm" id="pmo" hidden>
+    <div class="sgi">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <h3 class="d" id="pmo-title" style="margin:0">Policy</h3>
+        <button type="button" class="lnk" id="pmo-close">Close</button>
       </div>
+      <div id="pmo-body"></div>
     </div>
   </div>
 
-  <div class="modal" id="policy-modal" role="dialog" aria-modal="true" aria-labelledby="policy-title" aria-hidden="true">
-    <div class="modal-panel guide-panel" style="width:min(580px,100%)">
-      <div class="guide-body">
-        <button type="button" class="icon-close modal-close" id="policy-close-btn">Close</button>
-        <span class="eyebrow">Gym Gang // Store Policy</span>
-        <h2 class="display" id="policy-title">Policy</h2>
-        <div id="policy-body" class="policy-copy"></div>
-      </div>
-    </div>
-  </div>
-
-  <a class="wa-float" id="wa-help" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" href="https://wa.me/201010565783?text=Hi%20Gym%20Gang%2C%20I%20need%20help%20with%20my%20order%20%2F%20size.">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#25D366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.5-4.6A8.5 8.5 0 1 1 8 19.6z"/></svg>
+  <a class="wa" id="wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" href="https://wa.me/201010565783?text=Hi%20Gym%20Gang%2C%20I%20need%20help%20with%20my%20order%20%2F%20size.">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#25D366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.5-4.6A8.5 8.5 0 1 1 8 19.6z"/></svg>
     <span>Need help?</span>
   </a>
 
-  <button type="button" class="to-top" id="to-top-btn" aria-label="Back to top">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
+  <button type="button" class="tt2" id="to-top-btn" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>
   </button>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script defer src="js/products.js"></script>
-  <script defer src="js/store.js"></script>
-  <script defer src="js/gear-lab.js"></script>
+  <script defer src="/js/products.js"></script>
+  <script defer src="/js/store.js"></script>
+  <script defer src="/js/gear-lab.js"></script>
 </body>
 </html>
