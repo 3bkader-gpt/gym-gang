@@ -11,42 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/tokens.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <style>
-    .adm-header { background: var(--bg-rack); border-bottom: 1px solid var(--line-dark); padding: 14px var(--gutter); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .adm-brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
-    .adm-brand img { height: 26px; }
-    .adm-brand span { font-family: var(--font-display); font-size: 22px; text-transform: uppercase; letter-spacing: .05em; }
-    .adm-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
-    .adm-tab { padding: 8px 14px; background: var(--bg-iron); border: 1px solid var(--line-dark); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; cursor: pointer; color: var(--ink-muted); }
-    .adm-tab[aria-selected="true"] { background: var(--taupe); border-color: var(--taupe); color: var(--bg-iron); font-weight: 700; }
-    .adm-main { padding: 28px var(--gutter) 64px; max-width: 1320px; margin: 0 auto; }
-    .login-card { max-width: 420px; margin: 80px auto; background: var(--bg-rack); border: 1px solid var(--line-strong); padding: 28px; border-radius: var(--radius-md); }
-    .login-card h1 { font-size: 36px; margin: 6px 0 12px; }
-    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 24px; }
-    .kpi { background: var(--bg-rack); border: 1px solid var(--line-dark); padding: 18px; border-radius: var(--radius-md); }
-    .kpi small { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--ink-dim); letter-spacing: .1em; }
-    .kpi strong { display: block; font-family: var(--font-display); font-size: 38px; color: var(--taupe-bright); margin-top: 4px; }
-    .panel { background: var(--bg-rack); border: 1px solid var(--line-dark); border-radius: var(--radius-md); padding: 20px; margin-bottom: 20px; }
-    .panel-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line-dark); }
-    .panel-head h2 { font-size: 26px; }
-    table.adm-tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-    .adm-tbl th, .adm-tbl td { padding: 10px 8px; border-bottom: 1px solid var(--line-dark); text-align: left; vertical-align: middle; }
-    .adm-tbl th { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--taupe); letter-spacing: .08em; }
-    .badge { display: inline-block; padding: 3px 8px; border-radius: 2px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; border: 1px solid var(--line-strong); }
-    .adm-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .adm-form { display: grid; gap: 12px; }
-    .adm-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
-    .adm-form label { display: block; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--taupe); margin-bottom: 4px; }
-    .adm-form input, .adm-form select, .adm-form textarea { width: 100%; padding: 9px 11px; background: var(--bg-iron); border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--ink-bone); font-size: 14px; }
-    .sm-btn { padding: 6px 11px; background: transparent; border: 1px solid var(--line-strong); border-radius: 2px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; cursor: pointer; color: var(--ink-bone); }
-    .sm-btn:hover { border-color: var(--taupe); color: var(--taupe-bright); }
-    .sm-btn--danger { border-color: var(--rust); color: var(--rust); }
-    .stock-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; padding: 10px; background: var(--bg-iron); border: 1px solid var(--line-dark); }
-    .toast { position: fixed; bottom: 20px; left: 50%; transform: translate(-50%, 160%); opacity: 0; background: var(--taupe); color: var(--bg-iron); padding: 11px 20px; font-family: var(--font-mono); font-size: 12px; font-weight: 700; border-radius: 2px; z-index: 99; transition: .25s; }
-    .toast.is-open { transform: translate(-50%, 0); opacity: 1; }
-    @media (max-width: 820px) { .adm-grid2 { grid-template-columns: 1fr; } }
-  </style>
+  <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body>
   <header class="adm-header">
@@ -267,6 +232,7 @@
   </main>
 
   <div class="toast" id="adm-toast" role="status" aria-live="polite"></div>
-  <script defer src="/js/admin.js"></script>
+  <script defer src="/js/admin-api.js"></script>
+  <script defer src="/js/admin-views.js"></script>
 </body>
 </html>
